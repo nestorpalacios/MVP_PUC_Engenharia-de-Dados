@@ -424,7 +424,7 @@ Entre as categorias de alto volume, **7 categorias (relogios_presentes, bebes, i
 
 ### Pergunta 5 — Evolução mensal
 
-![Resultado P5](Images/p5_evolucao_mensal.PNG)
+![Resultado P5](Images/p5_evolucao_mensal..PNG)
 
 A receita mensal passou de **R$ 136943.46** em jan/2017 para **R$ 996973.51** em ago/2018. Comparando janeiro a agosto, 2018 cresceu **140.36 %** sobre 2017 em receita, enquanto o ticket médio variou **1.31 %**. Isso indica que o crescimento veio **do volume de pedidos**.
 No Novembro/2017, as receitas foram as mais altas durante o período analisado.
