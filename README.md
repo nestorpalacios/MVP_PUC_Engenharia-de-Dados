@@ -20,15 +20,15 @@
 
 | Notebook | Responsabilidade |
 |---|---|
-| [MVP00-objetivo](MVP00-objetivo.py) | Problema e perguntas de negócio |
-| [MVP01-setup](MVP01-setup.py) | Catálogo, schemas e volume |
-| [MVP02-carga-staging](MVP02-carga-staging.py) | Verificação dos arquivos brutos |
-| [MVP03-modelagem](MVP03-modelagem.py) | Modelo dimensional e catálogo de dados |
-| [MVP04-bronce](MVP04-bronce.py) | Ingestão para a camada Bronze |
-| [MVP05-qualidade](MVP05-qualidade.py) | Diagnóstico de qualidade |
-| [MVP06-silver](MVP06-silver.py) | Limpeza e padronização |
-| [MVP07-gold](MVP07-gold.py) | Materialização do modelo estrela |
-| [MVP08-analise](MVP08-analise.py) | Respostas às perguntas de negócio |
+| [MVP00-objetivo](MVP00-objetivo.ipynb) | Problema e perguntas de negócio |
+| [MVP01-setup](MVP01-setup.ipynb) | Catálogo, schemas e volume |
+| [MVP02-carga-staging](MVP02-carga-staging.ipynb) | Verificação dos arquivos brutos |
+| [MVP03-modelagem](MVP03-modelagem.ipynb) | Modelo dimensional e catálogo de dados |
+| [MVP04-bronce](MVP04-bronce.ipynb) | Ingestão para a camada Bronze |
+| [MVP05-qualidade](MVP05-qualidade.ipynb) | Diagnóstico de qualidade |
+| [MVP06-silver](MVP06-silver.ipynb) | Limpeza e padronização |
+| [MVP07-gold](MVP07-gold.ipynb) | Materialização do modelo estrela |
+| [MVP08-analise](MVP08-analise.ipynb) | Respostas às perguntas de negócio |
 | `Images/` | Evidências (screenshots) |
 
 ---
@@ -94,10 +94,10 @@ Dois detalhes relevantes da origem: `customer_id` muda a cada compra (a pessoa �
 ### Como foi feita
 
 1. Download manual dos 9 arquivos CSV a partir da página do dataset no Kaggle.
-2. Criação da estrutura no Unity Catalog ([MVP01-setup](MVP01-setup.py)): catálogo `mvp`,
+2. Criação da estrutura no Unity Catalog ([MVP01-setup](MVP01-setup.ipynb)): catálogo `mvp`,
    schemas `staging`, `bronce`, `silver`, `gold` e o volume `mvp.staging.kaggle_raw`.
 3. Upload dos arquivos para o volume pelo Catalog Explorer (*Upload to this volume*).
-4. Verificação automatizada ([MVP02-carga-staging](MVP02-carga-staging.py)): inventário, checagem de que os 9 arquivos esperados estão presentes e leitura dos cabeçalhos.
+4. Verificação automatizada ([MVP02-carga-staging](MVP02-carga-staging.ipynb)): inventário, checagem de que os 9 arquivos esperados estão presentes e leitura dos cabeçalhos.
 
 ### Decisões
 
@@ -117,7 +117,7 @@ Dois detalhes relevantes da origem: `customer_id` muda a cada compra (a pessoa �
 
 ## Modelagem e Catálogo de Dados (Etapa 4.3)
 
-Notebook: [MVP03-modelagem](MVP03-modelagem.py)
+Notebook: [MVP03-modelagem](MVP03-modelagem.ipynb)
 
 ### Arquitetura em camadas (medalhão)
 
@@ -162,7 +162,7 @@ As linhas representam relações um-para-muitos, com o lado "muitos" nas tabelas
 ### Catálogo de dados — camada Gold
 
 As descrições abaixo estão registradas como comentários de tabela e de coluna no Unity Catalog.
-Os domínios observados foram confirmados na validação 5 do [MVP07-gold](MVP07-gold.py).
+Os domínios observados foram confirmados na validação 5 do [MVP07-gold](MVP07-gold.ipynb).
 
 #### `mvp.gold.fato_pedidos`
 Fato de pedidos. **Grão:** um pedido. **Linhagem:** silver.pedidos + silver.itens_pedido + silver.pagamentos + silver.avaliacoes.
@@ -341,7 +341,7 @@ Kaggle (CSV) ──► staging (volume) ──► bronce (Delta, STRING) ──�
 
 ## Qualidade de Dados (Etapa 4.5)
 
-Notebook de diagnóstico: [MVP05-qualidade](MVP05-qualidade.py) · Notebook de tratamento: [MVP06-silver](MVP06-silver.py)
+Notebook de diagnóstico: [MVP05-qualidade](MVP05-qualidade.ipynb) · Notebook de tratamento: [MVP06-silver](MVP06-silver.ipynb)
 
 ### Método
 
@@ -391,7 +391,7 @@ unicidade, consistência (tipos e domínios), integridade referencial, acurácia
 
 ## Análise de Dados (Etapa 4.5)
 
-Notebook: [MVP08-analise](MVP08-analise.py). Todas as consultas usam exclusivamente a camada Gold.
+Notebook: [MVP08-analise](MVP08-analise.ipynb). Todas as consultas usam exclusivamente a camada Gold.
 
 ### Pergunta 1 — Atraso × nota da avaliação
 
